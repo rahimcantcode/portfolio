@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Abderrahim (Rahim) Latreche - Portfolio</title>
+  <title>Rahim Latreche | AI Engineering &amp; Data Science</title>
+  <meta name="description" content="Rahim Latreche builds AI analytics, semantic models, and machine learning applications. Explore two CBRE internships, selected projects, and his résumé." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -60,14 +61,6 @@
     }
     .edu-chip--done { border-color: rgba(34, 197, 94, 0.6); }
     .edu-chip--now { border-color: rgba(56, 189, 248, 0.65); }
-
-    .type-block { display: inline; }
-    .type-cursor { display: inline-block; width: 0.7ch; margin-left: 0.1ch; opacity: 0.9; animation: blink 0.9s steps(1, end) infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .type-hidden { visibility: hidden; }
-
-    [data-type] { visibility: hidden; }
-    [data-type].typing-ready { visibility: visible; }
 
     .intro-logo {
       position: absolute;
@@ -327,8 +320,8 @@
 
     /* SCROLL REVEAL */
     .section-wrapper {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.55s ease, transform 0.55s ease;
       will-change: transform, opacity;
     }
@@ -401,7 +394,7 @@
       cursor: pointer;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
-    .hero-slideshow__dot[aria-selected="true"] { background: rgba(56, 189, 248, 0.65); border-color: rgba(56, 189, 248, 0.95); transform: scale(1.2); }
+    .hero-slideshow__dot[aria-pressed="true"] { background: rgba(56, 189, 248, 0.65); border-color: rgba(56, 189, 248, 0.95); transform: scale(1.2); }
 
     @media (max-width: 650px) {
       .hero-slideshow { max-width: 100%; }
@@ -484,65 +477,22 @@
     /* ACCESSIBLE ANCHOR TARGETS */
     .anchorTarget { position: relative; top: -110px; height: 1px; width: 1px; overflow: hidden; }
 
-    /* SKILLS PHYSICS (REPLACES SKILLS LIST) */
-    .skills-physics {
-      position: relative;
-      width: 100%;
-      height: 420px;
-      border-radius: 1.2rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 62%),
-        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.10), transparent 60%),
-        rgba(15, 23, 42, 0.55);
-      overflow: hidden;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
-      touch-action: none;
-      user-select: none;
-    }
-
-    .skills-physics-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .skills-physics-labels {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .skill-bubble-label{
-      position:absolute;
-      transform:translate(-50%,-50%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      text-align:center;
-      white-space:normal;
-      word-break:break-word;
-      overflow-wrap:anywhere;
-
-      padding:0 10px;
-      border-radius:999px;
-
-      color:rgba(248,250,252,0.96);
-      text-shadow:0 10px 22px rgba(0,0,0,0.35);
-      user-select:none;
-      will-change:transform;
-      pointer-events:none;
-
-      line-height:1.08;
+    .skills-list dt { color: #38bdf8; font-weight: 600; margin-top: 0.8rem; }
+    .skills-list dd { color: #cbd5f5; font-size: 0.92rem; margin-top: 0.2rem; }
+    .project-card .project-context { color: #9ca3af; font-size: 0.78rem; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+    .skip-link { position: absolute; top: 1rem; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #020617; color: #38bdf8; border: 1px solid; }
+    @media (prefers-reduced-motion: reduce) {
+      .intro { display: none; }
+      .section-wrapper { transition: none; transform: none; }
+      .intro-hint::after { animation: none; }
     }
 
   </style>
 </head>
 
 <body>
+<a class="skip-link" href="#portfolio">Skip to portfolio</a>
 
 <section class="intro" id="intro">
   <span id="landed" class="anchorTarget" aria-hidden="true"></span>
@@ -570,14 +520,14 @@
   </div>
 </nav>
 
-<header>
+<header id="portfolio" tabindex="-1">
   <div class="hero-bg" id="hero-bg"></div>
 
   <div class="hero-inner">
     <div class="hero-copy" id="heroCopy">
-      <h1 data-type>Abderrahim (Rahim) Latreche</h1>
+      <h1>Abderrahim (Rahim) Latreche</h1>
 
-      <div class="hero-edu" data-type>
+      <div class="hero-edu">
         <div class="edu-line">
           <span class="edu-bullet edu-bullet--bs" aria-hidden="true"></span>
           <h2 class="edu-text">B.S. Computer Science + Data Science, SMU'25 · GPA 3.9</h2>
@@ -586,21 +536,22 @@
 
         <div class="edu-line">
           <span class="edu-bullet edu-bullet--ms" aria-hidden="true"></span>
-          <h2 class="edu-text">M.S. Computer Science (AI/ML) SMU'26</h2>
+          <h2 class="edu-text">M.S. Computer Science (AI/ML), SMU · Expected Dec 2026</h2>
           <span class="edu-chip edu-chip--now">In progress</span>
         </div>
       </div>
 
-      <p class="hero-tagline" data-type>
-        I build data and machine learning systems that turn raw information into clear, actionable insights. Using Python, SQL, and core ML techniques, I’ve worked on projects ranging from HVAC fault detection at scale to self-service analytics tools that let business teams make faster decisions. I also explore applied AI through AR and NLP projects, combining strong fundamentals with practical problem-solving. I bring a mix of technical depth, clean execution, and an ability to translate data into meaningful outcomes, positioning me to contribute quickly as an entry-level Data Scientist.
+      <p class="hero-tagline">
+        I build AI and data systems from raw data to deployed applications. Across two CBRE internships, I worked on HVAC fault detection, semantic search, and conversational maintenance analytics with Snowflake Cortex. My projects connect machine learning and NLP with practical APIs and interfaces.
       </p>
 
-      <div class="hero-pill-row" data-type>
-        <span class="hero-pill">Dallas, TX · F-1 International Student</span>
+      <div class="hero-pill-row">
+        <span class="hero-pill">Dallas, TX · AI Engineering · Machine Learning · Data Science</span>
       </div>
 
       <div class="header-links">
         <a href="mailto:alatreche@smu.edu">Email me</a>
+        <a href="#experience">Explore experience</a>
         <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/abderrahimlatreche" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -620,13 +571,13 @@
         <div class="hero-slideshow__controls">
           <button class="hero-slideshow__btn" type="button" id="heroPrevBtn" aria-label="Previous slide">&#8249;</button>
 
-          <div class="hero-slideshow__dots" role="tablist" aria-label="Slide selection">
-            <button class="hero-slideshow__dot" type="button" data-slide="0" aria-label="Go to slide 1" aria-selected="true"></button>
-            <button class="hero-slideshow__dot" type="button" data-slide="1" aria-label="Go to slide 2" aria-selected="false"></button>
-            <button class="hero-slideshow__dot" type="button" data-slide="2" aria-label="Go to slide 3" aria-selected="false"></button>
-            <button class="hero-slideshow__dot" type="button" data-slide="3" aria-label="Go to slide 4" aria-selected="false"></button>
-            <button class="hero-slideshow__dot" type="button" data-slide="4" aria-label="Go to slide 5" aria-selected="false"></button>
-            <button class="hero-slideshow__dot" type="button" data-slide="5" aria-label="Go to slide 6" aria-selected="false"></button>
+          <div class="hero-slideshow__dots" role="group" aria-label="Slide selection">
+            <button class="hero-slideshow__dot" type="button" data-slide="0" aria-label="Go to slide 1" aria-pressed="true"></button>
+            <button class="hero-slideshow__dot" type="button" data-slide="1" aria-label="Go to slide 2" aria-pressed="false"></button>
+            <button class="hero-slideshow__dot" type="button" data-slide="2" aria-label="Go to slide 3" aria-pressed="false"></button>
+            <button class="hero-slideshow__dot" type="button" data-slide="3" aria-label="Go to slide 4" aria-pressed="false"></button>
+            <button class="hero-slideshow__dot" type="button" data-slide="4" aria-label="Go to slide 5" aria-pressed="false"></button>
+            <button class="hero-slideshow__dot" type="button" data-slide="5" aria-label="Go to slide 6" aria-pressed="false"></button>
           </div>
 
           <button class="hero-slideshow__btn" type="button" id="heroNextBtn" aria-label="Next slide">&#8250;</button>
@@ -635,15 +586,16 @@
     </div>
 
     <aside class="hero-panel" aria-label="Resume sidebar">
-      <div class="resumePanelTitle">Resume</div>
+      <div class="resumePanelTitle">Resume · Updated November 2026</div>
 
       <div class="resumePreview" id="resumePreview" aria-label="Resume preview">
-        <img src="images/resume-preview.png" alt="Resume preview image" loading="lazy" decoding="async" />
+        <img src="images/resume-preview.png" alt="Résumé of Abderrahim Latreche, including CBRE internships in software engineering (2025) and data science (2026)" loading="lazy" decoding="async" />
       </div>
 
       <div class="resumeActions" aria-label="Resume actions">
         <button class="resumeBtn" type="button" id="resumeFullscreenBtn" aria-label="View resume preview full screen">Full screen</button>
-        <a class="resumeBtn" href="./files/Rahim_Latreche_Resume.pdf" download aria-label="Download resume PDF">Download</a>
+        <a class="resumeBtn" href="./files/Rahim_Latreche_Resume.pdf" download aria-label="Download resume PDF">Download PDF</a>
+        <a class="resumeBtn" href="./files/Rahim_Latreche_Resume.pdf" target="_blank" rel="noopener">Open PDF</a>
       </div>
     </aside>
   </div>
@@ -669,15 +621,15 @@
 </p>
 
 <p>
-  Recently, I worked on HVAC time series analysis and fault detection at CBRE Smart Facility Management,
-  built an industry-sponsored self-service analytics portal for Toyota Financial Services, and completed
-   research projects in ML and NLP.
+  At CBRE, my 2025 Software Engineering internship focused on HVAC data and semantic sensor matching.
+  In 2026, I returned as a Data Science Intern on SmartFM's Insights Explorer, building semantic models,
+  conversational analytics, and data extraction pipelines. I also built a Toyota Financial Services-sponsored
+  senior design portal and a deployed political bias analysis application.
 </p>
-
 <p>
-  Strengths: data cleaning at scale, feature engineering, practical ML modeling, and clear communication
-  with technical and non-technical stakeholders. I am currently looking for data science or ML engineering
-  roles where I can own projects end to end.
+  I am seeking AI engineering, machine learning, and data science opportunities. My strengths include
+  grounded text-to-SQL, retrieval and semantic search, data-quality debugging, feature engineering,
+  and connecting Python and SQL workflows to usable web applications.
 </p>
 
         </div>
@@ -685,10 +637,16 @@
         <div>
           <h3>Skills</h3>
 
-          <div class="skills-physics" id="skills-physics" aria-label="Interactive skills bubbles">
-            <canvas class="skills-physics-canvas" id="skills-canvas"></canvas>
-            <div class="skills-physics-labels" id="skills-labels" aria-hidden="false"></div>
-          </div>
+          <dl class="skills-list">
+            <dt>AI engineering</dt>
+            <dd>Snowflake Cortex Analyst, Search &amp; Agents · LangGraph · RAG · Vector search · Semantic modeling</dd>
+            <dt>Machine learning &amp; data</dt>
+            <dd>Python · SQL · Snowpark · scikit-learn · TensorFlow · Hugging Face · FAISS · Feature engineering · Model evaluation</dd>
+            <dt>Application engineering</dt>
+            <dd>JavaScript · React · Next.js · Node.js · Express · FastAPI · REST APIs</dd>
+            <dt>Delivery &amp; tooling</dt>
+            <dd>Git · Linux · Nginx · systemd · Azure DevOps</dd>
+          </dl>
         </div>
       </div>
     </div>
@@ -699,79 +657,54 @@
     <div class="section-wrapper">
       <h3>Selected Projects</h3>
       <div class="projects-grid">
+        <article class="project-card">
+          <h4>Insights Explorer: Conversational Analytics</h4>
+          <p class="project-context">CBRE SmartFM · Data Science Internship, 2026</p>
+          <p>Owned the maintenance-data-to-agent workflow using Snowflake Cortex. Built a semantic model with 10 logical tables, 13 relationships, 60+ facts, dimensions, and metrics, plus 12 verified SQL templates.</p>
+          <p>Materialized VARIANT-derived join keys in staging views to enable building-level rollups; automated version-preserving deployment across 5 LLM variants.</p>
+          <p class="project-tags">Snowflake Cortex · Snowpark · Semantic modeling · LangGraph</p>
+          <a href="#experience">Read CBRE internship details</a>
+        </article>
+        <article class="project-card">
+          <h4>LLM-Assisted Excel Table Extraction</h4>
+          <p class="project-context">CBRE SmartFM · Data Science Internship, 2026</p>
+          <p>Built a Snowpark Python pipeline for irregular Excel workbooks using structural heuristics, confidence-scored header detection, and selective Cortex AI_COMPLETE calls for ambiguous regions.</p>
+          <p>Added heuristic fallback, quality and cost telemetry, and custom fixtures for headerless tables and non-table regions. Client data stayed inside Snowflake.</p>
+          <p class="project-tags">Python · Snowpark · Cortex AI_COMPLETE · Data quality</p>
 
-        <div class="project-card">
-          <h4>Semantic Sensor Matching App</h4>
-          <p>
-            Analyst tool that maps natural language rule phrases to HVAC equipment metadata using semantic search
-            (FAISS + embeddings) and a review workflow for accuracy.
-          </p>
-          <p>
-            Why this matters: reduces manual point mapping and speeds up fault detection onboarding across buildings.
-          </p>
-          <p class="project-tags">Python · FAISS · Embeddings · HVAC · Data pipeline</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">See related code on GitHub</a>
-        </div>
+        </article>
+        <article class="project-card">
+          <h4>Bias Checker: Full-Stack NLP</h4>
+          <p class="project-context">Independent project</p>
+          <p>Built a political bias analysis app with article, sentence, and paragraph predictions, inline passage coloring, and inspectable model scores.</p>
+          <p>Connected a Hugging Face model to FastAPI and Next.js; deployed on a Linux VPS with Nginx, HTTPS, and systemd services.</p>
+          <p class="project-tags">Hugging Face · FastAPI · Next.js · Linux</p>
+          <a href="https://github.com/rahimcantcode/biasCheck" target="_blank" rel="noopener">View Bias Checker source</a>
+        </article>
+        <article class="project-card">
+          <h4>Quorra: Self-Service Data Portal</h4>
+          <p class="project-context">Toyota Financial Services · Sponsored Senior Design</p>
+          <p>Developed a self-service query portal with authenticated access, query history, result previews, and downloads for business and engineering users.</p>
+          <p>Built schema inspection, column summaries, and portfolio analytics workflows to help users explore data and construct SQL queries.</p>
+          <p class="project-tags">React · Python · REST APIs · SQL · Analytics UX</p>
 
-        <div class="project-card">
-          <h4>Quorra Self Service Data Portal</h4>
-          <p>
-            Industry sponsored capstone for Toyota Financial Services: a governed portal for non technical users to run approved queries,
-            view results, and track usage with role based access.
-          </p>
-          <p>
-            Why this matters: unlocks analytics without bottlenecking on IT while keeping governance and security.
-          </p>
-          <p class="project-tags">React · FastAPI · REST APIs · RBAC · Analytics UX</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">View Quorra repository</a>
-        </div>
+        </article>
+        <article class="project-card">
+          <h4>Semantic Sensor Matching</h4>
+          <p class="project-context">CBRE · Software Engineering Internship, 2025</p>
+          <p>Built a semantic matching pipeline to map natural-language HVAC fault rules to equipment metadata using FAISS and vector embeddings.</p>
+          <p>Prepared HVAC time-series data and features for fault-detection model development and evaluation against domain-expert rules.</p>
+          <p class="project-tags">Python · FAISS · Embeddings · Time series · Streamlit</p>
+          <a href="#experience">Read 2025 internship details</a>
+        </article>
+        <article class="project-card">
+          <h4>Logistic Regression from Scratch</h4>
+          <p class="project-context">Machine learning project</p>
+          <p>Implemented multiclass logistic regression with gradient ascent, SGD, and Newton’s method; explored L1, L2, and ElasticNet regularization.</p>
+          <p>Applied PCA to retain 95% variance with 10 of 23 features, alongside comparisons with scikit-learn.</p>
+          <p class="project-tags">Python · NumPy · scikit-learn · Optimization · PCA</p>
 
-        <div class="project-card">
-          <h4>NLP Political Bias Detection</h4>
-          <p>
-            Compared classical ML and transformer baselines for political bias detection across multiple datasets,
-            reporting accuracy and macro F1 and analyzing failure cases.
-          </p>
-          <p>
-            Why this matters: shows how model choice and text length change performance, especially on neutral or center classes.
-          </p>
-          <p class="project-tags">NLP · TF-IDF + SVM · DistilBERT · Longformer · Evaluation</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">View related work</a>
-        </div>
-
-        <div class="project-card">
-          <h4>Custom Logistic Regression + Regularization</h4>
-          <p>
-            Implemented multi class logistic regression from scratch with multiple optimizers and L1/L2 regularization,
-            then tuned hyperparameters for generalization.
-          </p>
-          <p>
-            Why this matters: strong fundamentals for explainable ML and production friendly baselines.
-          </p>
-          <p class="project-tags">Python · NumPy · Optimization · Regularization · Cross validation</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">View ML experiments</a>
-        </div>
-
-        <div class="project-card">
-          <h4>N Queens Local Search</h4>
-          <p>
-            Implemented local search approaches (random restarts hill climbing and simulated annealing) and analyzed success rates and runtimes.
-          </p>
-          <p>Why this matters: demonstrates optimization intuition and practical algorithm evaluation.</p>
-          <p class="project-tags">Algorithms · Local search · Heuristics · Analysis</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">View related work</a>
-        </div>
-
-        <div class="project-card">
-          <h4>AR Campus Navigation + VR Vaccine Training</h4>
-          <p>
-            Built an AR navigation experience and a VR vaccine administration simulator with step by step guidance, scoring, and feedback.
-          </p>
-          <p>Why this matters: improves navigation and training outcomes using interactive, environment based learning.</p>
-          <p class="project-tags">Unity · AR · VR · C# · UX</p>
-          <a href="https://github.com/rahimcantcode" target="_blank" rel="noopener">See AR and VR work</a>
-        </div>
-
+        </article>
       </div>
     </div>
   </section>
@@ -783,30 +716,28 @@
       <ul class="experience-list">
 
         <li>
-          <div class="experience-role">Data Science Intern · CBRE Smart FM</div>
-          <div class="experience-meta">Jun 2025 - Aug 2025 · Dallas, TX</div>
-          <p>
-            Problem: messy HVAC telemetry at scale, needed reliable signals for fault detection and consistent point mapping across clients.
-            Approach: cleaned and organized multi client datasets, engineered cooling and economizing features, and codified the
-            "AHU economizing and cooling simultaneously" rule using fan status, damper position, temperature deltas, and duration thresholds.
-            Impact: processed and analyzed 5M+ sensor readings across portfolios (including Comerica, Clorox, and Alaska Airlines) to support FDD analysis.
-          </p>
+          <div class="experience-role">Data Science Intern · CBRE SmartFM</div>
+          <div class="experience-meta">Jun 2026 - Aug 2026 · Dallas, TX · Insights Explorer</div>
+          <p>Owned raw maintenance data through semantic modeling to deployed conversational analytics with Snowflake Cortex Analyst, Search, and Agents. Built a model with 10 logical tables, 13 relationships, 60+ facts, dimensions, and metrics, and 12 verified SQL templates for grounded text-to-SQL.</p>
+          <p>Resolved semantic join failures through staging-view columns, automated deployment across 5 LLM variants, and built an irregular-Excel extraction pipeline with selective LLM assistance, telemetry, and fixture validation.</p>
         </li>
-
         <li>
-          <div class="experience-role">Software Engineer · Industry Sponsored Capstone (Toyota Financial Services)</div>
-          <div class="experience-meta">Aug 2025 - May 2026 · Dallas, TX</div>
-          <p>
-            Built Quorra, a self service analytics portal that helps business users safely explore data without relying on IT.
-            Implemented role based access, a clean analytics workflow for approved queries, and user friendly experiences for running and reviewing results.
-          </p>
+          <div class="experience-role">Software Engineering Intern · CBRE</div>
+          <div class="experience-meta">Jun 2025 - Aug 2025 · Dallas, TX</div>
+          <p>Cleaned and transformed 5M+ HVAC time-series records into features and labeled datasets for fault-detection modeling. Codified cooling and economizing rules using fan status, damper position, temperature differences, and duration thresholds.</p>
+          <p>Built semantic sensor matching with FAISS and embeddings to map natural-language fault rules to equipment metadata, supporting analysis across enterprise portfolios.</p>
+        </li>
+        <li>
+          <div class="experience-role">Data Engineer · Toyota Financial Services-sponsored Senior Design</div>
+          <div class="experience-meta">Aug 2025 - Dec 2025 · Plano, TX · Academic project</div>
+          <p>Developed Quorra with React, Python, and REST APIs, integrating authenticated access, query history, result previews, and downloads. Built schema inspection, column summaries, and portfolio analytics workflows for data exploration and SQL query construction.</p>
         </li>
 
         <li>
           <div class="experience-role">SURF Research Fellow · AI Advisor Chatbot (SMU)</div>
           <div class="experience-meta">May 2025 - Aug 2025 · Dallas, TX</div>
           <p>
-            Built an academic advising assistant concept for SMU focused on course planning and policy questions, designed to provide grounded answers and reduce confusion.
+            Built an academic advising assistant using transformer-based NLP and curated advising datasets; evaluated intent classification and retrieval pipelines using precision, recall, and latency.
             Faculty mentor: Dr. Labiba Jahan (SMU).
           </p>
         </li>
@@ -869,9 +800,8 @@
 
 </main>
 
-<footer>© 2025 Abderrahim (Rahim) Latreche</footer>
+<footer>© 2026 Abderrahim (Rahim) Latreche · Updated <time datetime="2026-11-01">November 1, 2026</time></footer>
 
-<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
 
 <script>
   // Scroll reveal with IntersectionObserver
@@ -1005,7 +935,7 @@
 
     function setActiveDot(realIndexZeroBased) {
       dots.forEach((d, i) => {
-        d.setAttribute("aria-selected", i === realIndexZeroBased ? "true" : "false");
+        d.setAttribute("aria-pressed", i === realIndexZeroBased ? "true" : "false");
       });
     }
 
@@ -1021,7 +951,9 @@
         setTransition(false);
       }
 
-      index = nextIndex;
+      index = prefersReducedMotion
+        ? ((nextIndex - 1 + realCount) % realCount) + 1
+        : nextIndex;
       translateToIndex(index);
       setActiveDot(getRealIndexZeroBased());
 
@@ -1149,563 +1081,9 @@
     });
   })();
 
-  // HERO typing animation on first scroll into view (no flash)
-  (function () {
-    const targets = Array.from(document.querySelectorAll("[data-type]"));
-    if (targets.length === 0) return;
 
-    const SPEED_MS = 4;
-    const PAUSE_BETWEEN = 140;
-
-    const prefersReducedMotion =
-      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
-      targets.forEach((el) => el.classList.add("typing-ready"));
-      return;
-    }
-
-    function isSimple(el) { return el.children.length === 0; }
-
-    async function typeSimple(el, full) {
-      el.classList.add("typing-ready");
-      el.textContent = "";
-
-      const cursor = document.createElement("span");
-      cursor.className = "type-cursor";
-      cursor.textContent = "|";
-      el.appendChild(cursor);
-
-      for (let i = 0; i < full.length; i++) {
-        cursor.insertAdjacentText("beforebegin", full[i]);
-        await new Promise((r) => window.setTimeout(r, SPEED_MS));
-      }
-
-      cursor.remove();
-    }
-
-    async function typeOverlay(el, full) {
-      const overlay = document.createElement("div");
-      overlay.className = "type-block typing-ready";
-      overlay.style.display = "block";
-
-      const cursor = document.createElement("span");
-      cursor.className = "type-cursor";
-      cursor.textContent = "|";
-
-      overlay.textContent = "";
-      overlay.appendChild(cursor);
-
-      el.parentNode.insertBefore(overlay, el);
-
-      for (let i = 0; i < full.length; i++) {
-        cursor.insertAdjacentText("beforebegin", full[i]);
-        await new Promise((r) => window.setTimeout(r, SPEED_MS));
-      }
-
-      cursor.remove();
-      overlay.remove();
-
-      el.classList.add("typing-ready");
-    }
-
-    async function runTypingSequence() {
-      for (const el of targets) {
-        const full = (el.textContent || "").replace(/\s+/g, " ").trim();
-
-        if (!full) {
-          el.classList.add("typing-ready");
-          continue;
-        }
-
-        if (isSimple(el)) await typeSimple(el, full);
-        else await typeOverlay(el, full);
-
-        await new Promise((r) => window.setTimeout(r, PAUSE_BETWEEN));
-      }
-    }
-
-    let hasRun = false;
-    const trigger = document.querySelector(".hero-inner") || targets[0];
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry || !entry.isIntersecting || hasRun) return;
-        hasRun = true;
-        runTypingSequence();
-      },
-      { threshold: 0.25 }
-    );
-
-    io.observe(trigger);
-  })();
 </script>
 
-<script>
-  // SKILLS PHYSICS (Matter.js)
-  (function () {
-    const container = document.getElementById("skills-physics");
-    const canvas = document.getElementById("skills-canvas");
-    const labelsRoot = document.getElementById("skills-labels");
-    if (!container || !canvas || !labelsRoot || !window.Matter) return;
-
-    const prefersReducedMotion =
-      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const skills = [
-  { label: "Python", weight: 3 },
-  { label: "JavaScript", weight: 2 },
-  { label: "TypeScript", weight: 2 },
-  { label: "C++", weight: 1 },
-  { label: "SQL", weight: 3 },
-  { label: "JAVA", weight: 1 },
-
-  { label: "React", weight: 2 },
-  { label: "Node.js", weight: 2 },
-  { label: "FastAPI", weight: 2 },
-
-  { label: "SciPy", weight: 1 },
-  { label: "Scikit-learn", weight: 3 },
-  { label: "Matplotlib", weight: 1 },
-  { label: "Seaborn", weight: 1 },
-  { label: "PyTorch", weight: 2 },
-
-  { label: "Bert Fine-tuning", weight: 3 },
-  { label: "Logistic Regression", weight: 3 },
-  { label: "Regularization (L1/L2)", weight: 3 },
-  { label: "Gradient Descent Optimization", weight: 3 },
-  { label: "Hyperparameter Tuning", weight: 3 },
-
-  { label: "Data Cleaning", weight: 3 },
-  { label: "Feature Engineering", weight: 3 },
-  { label: "Cross-Validation", weight: 2 },
-  { label: "Time Series Analysis", weight: 2 },
-
-  { label: "Large-scale Data Processing", weight: 2 },
-  { label: "JSON/CSV Parsing", weight: 1 },
-  { label: "SQL Database Design", weight: 2 },
-  { label: "REST API Development", weight: 2 },
-
-  { label: "Git", weight: 1 },
-  { label: "GitHub", weight: 1 },
-  { label: "Linux/Unix", weight: 1 },
-  { label: "Jupyter Notebook", weight: 1 },
-  { label: "Unity", weight: 1 }
-];
-
-
-    if (prefersReducedMotion) {
-      container.style.height = "auto";
-      canvas.style.display = "none";
-      labelsRoot.innerHTML = "";
-
-      const fallback = document.createElement("div");
-      fallback.style.display = "flex";
-      fallback.style.flexWrap = "wrap";
-      fallback.style.gap = "0.5rem";
-      fallback.style.padding = "0.9rem";
-      fallback.style.userSelect = "text";
-      fallback.innerHTML = skills.map(s => `<span class="hero-pill">${s.label}</span>`).join("");
-      container.appendChild(fallback);
-      return;
-    }
-
-    const Engine = Matter.Engine;
-    const Render = Matter.Render;
-    const Runner = Matter.Runner;
-    const Bodies = Matter.Bodies;
-    const World = Matter.World;
-    const Mouse = Matter.Mouse;
-    const MouseConstraint = Matter.MouseConstraint;
-    const Events = Matter.Events;
-    const Body = Matter.Body;
-    const Composite = Matter.Composite;
-
-    const engine = Engine.create();
-    engine.gravity.y = 0;
-
-    const runner = Runner.create();
-
-    function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
-
-    function setLabelDiameter(el, px) {
-  el.style.width = px + "px";
-  el.style.height = px + "px";
-}
-
-function fitLabelToCircle(el, diameterPx) {
-  // Start font size based on circle size, then shrink if needed
-  const maxFont = clamp(diameterPx * 0.18, 10, 18);
-  const minFont = 10;
-
-  el.style.fontSize = maxFont.toFixed(2) + "px";
-  setLabelDiameter(el, Math.max(42, diameterPx));
-
-  // Force layout so scroll sizes are accurate
-  void el.offsetHeight;
-
-  let fs = maxFont;
-  const maxH = diameterPx * 0.78;
-  const maxW = diameterPx * 0.92;
-
-  // Shrink loop (runs only at init/resize, not every frame)
-  for (let k = 0; k < 14; k++) {
-    const tooTall = el.scrollHeight > maxH;
-    const tooWide = el.scrollWidth > maxW;
-    if (!tooTall && !tooWide) break;
-
-    fs = Math.max(minFont, fs - 1);
-    el.style.fontSize = fs.toFixed(2) + "px";
-    void el.offsetHeight;
-    if (fs === minFont) break;
-  }
-}
-
-
-    function sizeFromWeight(w) {
-      const base = 26;
-      const step = 10;
-      return base + (w - 1) * step;
-    }
-
-    function hexToRgba(hex, a) {
-  const h = hex.replace("#", "").trim();
-  const full = h.length === 3 ? h.split("").map(ch => ch + ch).join("") : h;
-  const n = parseInt(full, 16);
-  const r = (n >> 16) & 255;
-  const g = (n >> 8) & 255;
-  const b = n & 255;
-  return "rgba(" + r + "," + g + "," + b + "," + a + ")";
-}
-
-const MODERN_PALETTE = [
-  "#06b6d4", // cyan
-  "#22c55e", // green
-  "#3b82f6", // blue
-  "#a855f7", // purple
-  "#f97316", // orange
-  "#eab308", // amber
-  "#14b8a6", // teal
-  "#6366f1", // indigo
-  "#f43f5e", // rose
-  "#84cc16"  // lime
-];
-
-function colorForIndex(i) {
-  const base = MODERN_PALETTE[i % MODERN_PALETTE.length];
-  return {
-    fill: hexToRgba(base, 0.88),
-    stroke: hexToRgba(base, 0.95)
-  };
-}
-
-
-    let render = null;
-    let walls = [];
-    let bubbleBodies = [];
-    let labelEls = new Map();
-    let ro = null;
-
-    function getContainerSize() {
-      const rect = container.getBoundingClientRect();
-      const width = Math.max(320, Math.floor(rect.width));
-      const height = Math.max(260, Math.floor(rect.height));
-      return { width, height };
-    }
-
-    function destroyWalls() {
-      if (walls.length) {
-        World.remove(engine.world, walls);
-        walls = [];
-      }
-    }
-
-    function createWalls(width, height) {
-      const t = 70;
-      const o = 20;
-      const opts = { isStatic: true, restitution: 0.2, friction: 0.02, render: { visible: false } };
-      const left = Bodies.rectangle(-t / 2 + o, height / 2, t, height + 2 * t, opts);
-      const right = Bodies.rectangle(width + t / 2 - o, height / 2, t, height + 2 * t, opts);
-      const top = Bodies.rectangle(width / 2, -t / 2 + o, width + 2 * t, t, opts);
-      const bottom = Bodies.rectangle(width / 2, height + t / 2 - o, width + 2 * t, t, opts);
-      walls = [left, right, top, bottom];
-      World.add(engine.world, walls);
-    }
-
-    function clearBubbles() {
-      if (bubbleBodies.length) {
-        World.remove(engine.world, bubbleBodies);
-        bubbleBodies = [];
-      }
-      labelEls.forEach((el) => el.remove());
-      labelEls.clear();
-      labelsRoot.innerHTML = "";
-    }
-
-    function tryPlaceNonOverlapping(r, width, height, placed, pad) {
-      const attempts = 900;
-      for (let k = 0; k < attempts; k++) {
-        const x = r + pad + Math.random() * (width - 2 * (r + pad));
-        const y = r + pad + Math.random() * (height - 2 * (r + pad));
-
-        let ok = true;
-        for (let j = 0; j < placed.length; j++) {
-          const p = placed[j];
-          const dx = x - p.x;
-          const dy = y - p.y;
-          const dist2 = dx * dx + dy * dy;
-          const min = r + p.r + pad;
-          if (dist2 < min * min) { ok = false; break; }
-        }
-
-        if (ok) return { x, y };
-      }
-      return null;
-    }
-
-    function createBubbles(width, height) {
-      clearBubbles();
-
-      const total = skills.length;
-      const placed = [];
-      const pad = 7;
-
-      const sorted = skills
-        .map((s, idx) => ({ ...s, idx }))
-        .sort((a, b) => b.weight - a.weight);
-
-      sorted.forEach((s, orderIndex) => {
-        const r = sizeFromWeight(s.weight);
-        const pos = tryPlaceNonOverlapping(r, width, height, placed, pad) || {
-          x: clamp(width / 2 + (Math.random() - 0.5) * 60, r + pad, width - (r + pad)),
-          y: clamp(height / 2 + (Math.random() - 0.5) * 60, r + pad, height - (r + pad))
-        };
-
-        placed.push({ x: pos.x, y: pos.y, r });
-
-        const c = colorForIndex(orderIndex, total);
-
-        const body = Bodies.circle(pos.x, pos.y, r, {
-          restitution: 0.82,
-          friction: 0.035,
-          frictionStatic: 0.02,
-          frictionAir: 0.03,
-          slop: 0.01,
-          render: {
-            fillStyle: c.fill,
-            strokeStyle: c.stroke,
-            lineWidth: 2
-          }
-        });
-
-        body.plugin = body.plugin || {};
-        body.plugin.skillLabel = s.label;
-
-        bubbleBodies.push(body);
-
-        const label = document.createElement("div");
-          label.className = "skill-bubble-label";
-          label.textContent = s.label;
-          labelsRoot.appendChild(label);
-
-          // Fit text to the bubble once at creation
-          const diameter = Math.max(44, (r * 2) * 0.92);
-          fitLabelToCircle(label, diameter);
-
-          labelEls.set(body.id, label);
-
-      });
-
-      World.add(engine.world, bubbleBodies);
-    }
-
-    function setCanvasSize(width, height) {
-      if (!render) return;
-
-      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      render.options.pixelRatio = dpr;
-      render.options.width = width;
-      render.options.height = height;
-
-      render.canvas.width = Math.floor(width * dpr);
-      render.canvas.height = Math.floor(height * dpr);
-      render.canvas.style.width = width + "px";
-      render.canvas.style.height = height + "px";
-
-      Render.lookAt(render, {
-        min: { x: 0, y: 0 },
-        max: { x: width, y: height }
-      });
-    }
-
-    function updateLabels() {
-      const rect = container.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-      if (w <= 0 || h <= 0) return;
-
-      for (let i = 0; i < bubbleBodies.length; i++) {
-        const b = bubbleBodies[i];
-        const el = labelEls.get(b.id);
-        if (!el) continue;
-
-        const x = b.position.x;
-        const y = b.position.y;
-
-        el.style.left = x + "px";
-        el.style.top = y + "px";
-
-        const r = b.circleRadius || 24;
-        const target = clamp(r / 34, 0.78, 1.12);
-        el.style.transform = "translate(-50%, -50%) scale(" + target.toFixed(3) + ")";
-      }
-    }
-
-    function addGentleSeparation() {
-      const n = bubbleBodies.length;
-      if (n < 2) return;
-
-      for (let i = 0; i < n; i++) {
-        const a = bubbleBodies[i];
-        for (let j = i + 1; j < n; j++) {
-          const b = bubbleBodies[j];
-          const dx = b.position.x - a.position.x;
-          const dy = b.position.y - a.position.y;
-          const dist = Math.sqrt(dx * dx + dy * dy) || 0.0001;
-
-          const ra = a.circleRadius || 0;
-          const rb = b.circleRadius || 0;
-
-          const min = ra + rb + 1.0;
-          if (dist < min) {
-            const overlap = (min - dist) * 0.55;
-            const nx = dx / dist;
-            const ny = dy / dist;
-
-            Body.translate(a, { x: -nx * overlap * 0.5, y: -ny * overlap * 0.5 });
-            Body.translate(b, { x: nx * overlap * 0.5, y: ny * overlap * 0.5 });
-          }
-        }
-      }
-    }
-
-    function stabilizeInBounds(width, height) {
-      for (let i = 0; i < bubbleBodies.length; i++) {
-        const b = bubbleBodies[i];
-        const r = b.circleRadius || 0;
-        const px = clamp(b.position.x, r + 6, width - (r + 6));
-        const py = clamp(b.position.y, r + 6, height - (r + 6));
-        if (px !== b.position.x || py !== b.position.y) {
-          Body.setPosition(b, { x: px, y: py });
-        }
-      }
-    }
-
-    function init() {
-      const { width, height } = getContainerSize();
-
-      render = Render.create({
-        canvas,
-        engine,
-        options: {
-          width,
-          height,
-          background: "transparent",
-          wireframes: false,
-          pixelRatio: Math.max(1, Math.min(2, window.devicePixelRatio || 1)),
-          hasBounds: false
-        }
-      });
-
-      setCanvasSize(width, height);
-      destroyWalls();
-      createWalls(width, height);
-      createBubbles(width, height);
-
-      const mouse = Mouse.create(render.canvas);
-      mouse.pixelRatio = render.options.pixelRatio;
-
-      const mouseConstraint = MouseConstraint.create(engine, {
-        mouse,
-        constraint: {
-          stiffness: 0.22,
-          damping: 0.18,
-          angularStiffness: 0.18,
-          render: { visible: false }
-        }
-      });
-
-      World.add(engine.world, mouseConstraint);
-      render.mouse = mouse;
-
-      Events.on(mouseConstraint, "startdrag", (evt) => {
-        const body = evt.body;
-        if (!body) return;
-        Body.setAngularVelocity(body, 0);
-        body.frictionAir = 0.012;
-      });
-
-      Events.on(mouseConstraint, "enddrag", (evt) => {
-        const body = evt.body;
-        if (!body) return;
-        body.frictionAir = 0.03;
-      });
-
-      Events.on(engine, "beforeUpdate", () => {
-        addGentleSeparation();
-      });
-
-      Events.on(engine, "afterUpdate", () => {
-        const rect = container.getBoundingClientRect();
-        const w = Math.max(1, rect.width);
-        const h = Math.max(1, rect.height);
-        stabilizeInBounds(w, h);
-        updateLabels();
-      });
-
-      Render.run(render);
-      Runner.run(runner, engine);
-
-      ro = new ResizeObserver(() => {
-        const s = getContainerSize();
-        setCanvasSize(s.width, s.height);
-        destroyWalls();
-        createWalls(s.width, s.height);
-
-        stabilizeInBounds(s.width, s.height);
-
-// Refit label sizes on resize based on each body's radius
-bubbleBodies.forEach((b) => {
-  const el = labelEls.get(b.id);
-  if (!el) return;
-  const r = b.circleRadius || 24;
-  const diameter = Math.max(44, (r * 2) * 0.92);
-  fitLabelToCircle(el, diameter);
-});
-
-updateLabels();
-
-
-        if (render && render.mouse) {
-          render.mouse.pixelRatio = render.options.pixelRatio;
-        }
-      });
-      ro.observe(container);
-
-      window.addEventListener("visibilitychange", () => {
-        if (!render) return;
-        if (document.hidden) {
-          Runner.stop(runner);
-        } else {
-          Runner.run(runner, engine);
-        }
-      });
-    }
-
-    init();
-  })();
-</script>
 
 </body>
 </html>
